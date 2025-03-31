@@ -450,7 +450,7 @@ contract TSwapPool is ERC20 {
     }
 
     /// @notice a more verbose way of getting the total supply of liquidity tokens
-    // @audit-info: should be external
+    // should be external
     function totalLiquidityTokenSupply() public view returns (uint256) {
         return totalSupply();
     }
@@ -470,7 +470,7 @@ contract TSwapPool is ERC20 {
     function getPriceOfOneWethInPoolTokens() external view returns (uint256) {
         return
             getOutputAmountBasedOnInput(
-                1e18, // @audit-info: magic numbers
+                1e18, // report-written: magic numbers
                 i_wethToken.balanceOf(address(this)),
                 i_poolToken.balanceOf(address(this))
             );
@@ -479,7 +479,7 @@ contract TSwapPool is ERC20 {
     function getPriceOfOnePoolTokenInWeth() external view returns (uint256) {
         return
             getOutputAmountBasedOnInput(
-                1e18, // @audit-info: magic numbers
+                1e18, // report-written: magic numbers
                 i_poolToken.balanceOf(address(this)),
                 i_wethToken.balanceOf(address(this))
             );
